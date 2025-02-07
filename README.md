@@ -48,7 +48,7 @@ cd QUIC-Data-Collection
 Using a virtual environment is a good practice to keep dependencies isolated:
 ```bash
 python3 -m venv .venv
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 ### **6. Install Python Dependencies**
