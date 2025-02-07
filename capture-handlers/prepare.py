@@ -326,11 +326,11 @@ def find_csv_files(dir):
 
 
 def main(args):
-    files = find_csv_files(args.files)
+    files = find_csv_files(args.data_dir)
     for csv_file in files:
         json_file = csv_file.replace(".csv", ".json")
         base_save_path = fr"{csv_file[:-4]}_colored_windows"
-        base_save_path = change_root_dir(base_save_path, args.save_path)
+        base_save_path = change_root_dir(base_save_path, args.output_dir)
         clean_csv_save_path = f"{csv_file[:-4]}_clean.csv"
         
         # check if the clean csv file already exists
@@ -371,10 +371,9 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="preprocessing parameters")
-    parser.add_argument("--save_path", help="A path to save the flowpics."
+    parser.add_argument('--data-dir', "-d", help="dir for files")
+    parser.add_argument("--output-dir", "-o", help="A path to save the flowpics."
                                         " The images will save in '{res_path}{os.path.sep}{n_streams}'")
-    parser.add_argument('--files', help="dir for files")
-    parser.add_argument('--zip_folder', default="", help="The folder that contains the zips, each zip contains the traces of a webserver")
     args = parser.parse_args()
 
     main(args)
