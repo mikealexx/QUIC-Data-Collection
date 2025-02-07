@@ -99,6 +99,7 @@ This will **automate the full pipeline** from traffic capture to image generatio
 ---
 
 ### **Manual Execution**
+**Notice: When using the manual method, do not add `/` before the directory paths in the parameters**
 #### **Step 1: Capture QUIC Traffic**
 Run the `capture.py` script to capture network traffic:
 ```bash
@@ -117,7 +118,7 @@ The parameters are as follows:
 
 **Example:**
 ```bash
-python3 capture-handlers/capture.py -i eth0 -l /links -o /raw_data -n 10 -x 0
+python3 capture-handlers/capture.py -i eth0 -l links -o raw_data -n 10 -x 0
 ```
 
 #### **Step 2: Convert Raw Captured Data**
@@ -130,7 +131,7 @@ The parameters are as follows:
 
 **Example:**
 ```bash
-python3 capture-handlers/convert.py -d /raw_data
+python3 capture-handlers/convert.py -d raw_data
 ```
 
 #### **Step 3: Prepare the Data for Analysis**
@@ -144,7 +145,7 @@ The parameters are as follows:
 
 **Example:**
 ```bash
-python3 capture-handlers/prepare.py -d /raw_data -o /processed_images
+python3 capture-handlers/prepare.py -d raw_data -o processed_images
 ```
 
 ---
